@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --popover: #ffffff;
+    --popover-foreground: #0f172a;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #f8fafc;
+    --accent-foreground: #0f172a;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #e2e8f0;
+    --input: #ffffff;
+    --ring: #2563eb;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --popover: #1e293b;
+    --popover-foreground: #f8fafc;
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --accent-foreground: #f8fafc;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --border: #334155;
+    --input: #1e293b;
+    --ring: #2563eb;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply flex h-12 w-full rounded-lg border-2 bg-background px-4 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .select-base {
+    @apply flex h-12 w-full items-center justify-between rounded-lg border-2 bg-background px-4 text-base ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .card-base {
+    @apply rounded-lg border-2 bg-card text-card-foreground shadow-sm;
+  }
+
+  .hover-primary {
+    @apply hover:bg-primary hover:bg-opacity-90 transition-colors;
+  }
+
+  .hover-border {
+    @apply hover:border-primary hover:border-opacity-40 transition-colors;
+  }
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  .bg-primary-5 {
+    @apply bg-primary bg-opacity-5;
+  }
+  
+  .bg-primary-10 {
+    @apply bg-primary bg-opacity-10;
+  }
+  
+  .bg-primary-20 {
+    @apply bg-primary bg-opacity-20;
+  }
+  
+  .bg-primary-40 {
+    @apply bg-primary bg-opacity-40;
+  }
+}
+
+/* Dropdowns */
+[data-radix-popper-content-wrapper] {
+  @apply bg-card border-2 text-foreground;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary bg-opacity-20 rounded-full hover:bg-opacity-40 transition-opacity;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
